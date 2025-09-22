@@ -1,0 +1,286 @@
+import React, { useState } from 'react';
+import { Upload, User, BookOpen, MapPin, Building, CheckCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
+
+const StudentPortal = () => {
+  const [activeStep, setActiveStep] = useState(1);
+  const [resumeUploaded, setResumeUploaded] = useState(false);
+
+  const steps = [
+    { id: 1, title: 'Upload Resume', icon: Upload },
+    { id: 2, title: 'Verify Profile', icon: User },
+    { id: 3, title: 'Set Preferences', icon: MapPin },
+    { id: 4, title: 'Get Matches', icon: Building }
+  ];
+
+  const mockRecommendations = [
+    {
+      id: 1,
+      company: 'Tech Mahindra',
+      role: 'Software Development Intern',
+      location: 'Mumbai',
+      match: 95,
+      sector: 'Technology',
+      duration: '3 months'
+    },
+    {
+      id: 2,
+      company: 'HDFC Bank',
+      role: 'Business Analytics Intern',
+      location: 'Delhi',
+      match: 88,
+      sector: 'Banking',
+      duration: '6 months'
+    },
+    {
+      id: 3,
+      company: 'Wipro',
+      role: 'Data Science Intern',
+      location: 'Bangalore',
+      match: 82,
+      sector: 'Technology',
+      duration: '4 months'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-4">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg"></div>
+              <h1 className="text-xl font-semibold text-gray-900">PM Internship Portal</h1>
+            </div>
+            <div className="flex items-center space-x-4">
+              <span className="text-sm text-gray-600">Welcome, Rahul Sharma</span>
+              <Button variant="outline" size="sm">Profile</Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Progress Stepper */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const isActive = activeStep === step.id;
+              const isCompleted = activeStep > step.id;
+              
+              return (
+                <div key={step.id} className="flex items-center">
+                  <div className={`flex items-center justify-center w-10 h-10 rounded-full ${
+                    isCompleted ? 'bg-green-500 text-white' :
+                    isActive ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-500'
+                  }`}>
+                    {isCompleted ? <CheckCircle size={20} /> : <Icon size={20} />}
+                  </div>
+                  <span className={`ml-2 text-sm font-medium ${
+                    isActive || isCompleted ? 'text-gray-900' : 'text-gray-500'
+                  }`}>
+                    {step.title}
+                  </span>
+                  {index < steps.length - 1 && (
+                    <div className={`w-20 h-1 mx-4 ${
+                      isCompleted ? 'bg-green-500' : 'bg-gray-200'
+                    }`} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Main Content */}
+          <div className="lg:col-span-2">
+            {activeStep === 1 && (
+              <Card className="p-6">
+                <h2 className="text-xl font-semibold mb-4">Upload Your Resume</h2>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-500 transition-colors cursor-pointer">
+                  <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                  <p className="text-gray-600 mb-2">Click to upload or drag and drop your resume</p>
+                  <p className="text-sm text-gray-500">PDF files only, max 5MB</p>
+                  <Button 
+                    className="mt-4" 
+                    onClick={() => {
+                      setResumeUploaded(true);
+                      setTimeout(() => setActiveStep(2), 1000);
+                    }}
+                  >
+                    Choose File
+                  </Button>
+                </div>
+                {resumeUploaded && (
+                  <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <div className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                      <span className="text-green-700">Resume_Rahul_Sharma.pdf uploaded successfully!</span>
+                    </div>
+                    <Progress value={75} className="mt-2" />
+                    <p className="text-sm text-green-600 mt-1">AI is extracting your profile information...</p>
+                  </div>
+                )}
+              </Card>
+            )}
+
+            {activeStep === 2 && (
+              <Card className="p-6">
+                <h2 className="text-xl font-semibold mb-4">Verify Auto-Filled Profile</h2>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                      <input 
+                        type="text" 
+                        value="Rahul Sharma" 
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <input 
+                        type="email" 
+                        value="rahul.sharma@example.com" 
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Education</label>
+                    <input 
+                      type="text" 
+                      value="B.Tech Computer Science, IIT Delhi (2023)" 
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Extracted Skills</label>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {['Python', 'JavaScript', 'React', 'Machine Learning', 'SQL', 'Git'].map((skill) => (
+                        <Badge key={skill} variant="secondary">{skill}</Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between">
+                    <Button variant="outline" onClick={() => setActiveStep(1)}>Back</Button>
+                    <Button onClick={() => setActiveStep(3)}>Continue</Button>
+                  </div>
+                </div>
+              </Card>
+            )}
+
+            {activeStep === 3 && (
+              <Card className="p-6">
+                <h2 className="text-xl font-semibold mb-4">Set Your Preferences</h2>
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Locations</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Pune', 'Hyderabad'].map((city) => (
+                        <label key={city} className="flex items-center">
+                          <input type="checkbox" className="mr-2" defaultChecked={city === 'Mumbai' || city === 'Delhi'} />
+                          <span>{city}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Sectors</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {['Technology', 'Banking', 'Healthcare', 'Manufacturing', 'Government', 'Startup'].map((sector) => (
+                        <label key={sector} className="flex items-center">
+                          <input type="checkbox" className="mr-2" defaultChecked={sector === 'Technology' || sector === 'Banking'} />
+                          <span>{sector}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between">
+                    <Button variant="outline" onClick={() => setActiveStep(2)}>Back</Button>
+                    <Button onClick={() => setActiveStep(4)}>Find Matches</Button>
+                  </div>
+                </div>
+              </Card>
+            )}
+
+            {activeStep === 4 && (
+              <div className="space-y-4">
+                <h2 className="text-xl font-semibold">Your AI-Matched Internships</h2>
+                {mockRecommendations.map((internship) => (
+                  <Card key={internship.id} className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="text-lg font-semibold">{internship.role}</h3>
+                        <p className="text-gray-600">{internship.company}</p>
+                        <p className="text-sm text-gray-500">{internship.location} • {internship.duration}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-green-600">{internship.match}%</div>
+                        <div className="text-sm text-gray-500">Match Score</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <Badge variant="outline">{internship.sector}</Badge>
+                      <div className="space-x-2">
+                        <Button variant="outline" size="sm">View Details</Button>
+                        <Button size="sm">Apply Now</Button>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            <Card className="p-4">
+              <h3 className="font-semibold mb-3">Application Status</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-sm text-gray-600">Applied</span>
+                  <span className="text-sm font-medium">3</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm text-gray-600">Under Review</span>
+                  <span className="text-sm font-medium">2</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm text-gray-600">Interview Scheduled</span>
+                  <span className="text-sm font-medium text-blue-600">1</span>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-4">
+              <h3 className="font-semibold mb-3">Profile Completeness</h3>
+              <Progress value={85} className="mb-2" />
+              <p className="text-sm text-gray-600">85% complete</p>
+              <ul className="text-sm text-gray-600 mt-2 space-y-1">
+                <li>✓ Resume uploaded</li>
+                <li>✓ Profile verified</li>
+                <li>✓ Preferences set</li>
+                <li className="text-orange-600">• Add portfolio link</li>
+              </ul>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StudentPortal;
