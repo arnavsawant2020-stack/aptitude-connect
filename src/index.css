@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Government scheme color palette - professional blues and indigos */
+    /* Premium color palette - sophisticated and elegant */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -18,43 +18,49 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Primary brand colors - Government blue theme */
-    --primary: 213 94% 68%;
+    /* Premium primary colors - Deep royal blue with gold accents */
+    --primary: 220 91% 51%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 213 94% 78%;
+    --primary-glow: 220 91% 61%;
+    --primary-variant: 230 81% 41%;
     
-    /* Secondary colors for highlights */
-    --secondary: 47 96% 89%;
-    --secondary-foreground: 213 94% 20%;
+    /* Premium secondary - Sophisticated cream/gold */
+    --secondary: 45 93% 94%;
+    --secondary-foreground: 220 91% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 20% 97%;
+    --muted-foreground: 220 16% 46%;
 
-    --accent: 142 76% 36%;
+    /* Premium accent - Emerald green */
+    --accent: 160 84% 39%;
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 213 94% 68%;
+    --border: 220 20% 91%;
+    --input: 220 20% 91%;
+    --ring: 220 91% 51%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    /* Custom design tokens for government portal */
-    --gradient-primary: linear-gradient(135deg, hsl(213 94% 68%), hsl(213 94% 78%));
-    --gradient-secondary: linear-gradient(135deg, hsl(47 96% 89%), hsl(47 96% 95%));
-    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
-    --gradient-hero: linear-gradient(135deg, hsl(213 94% 68%) 0%, hsl(219 78% 58%) 50%, hsl(225 83% 53%) 100%);
+    /* Premium design tokens with sophisticated gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 91% 51%) 0%, hsl(230 81% 61%) 50%, hsl(240 71% 71%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(45 93% 94%) 0%, hsl(45 93% 98%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 84% 49%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 91% 51%) 0%, hsl(230 81% 41%) 35%, hsl(240 71% 31%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
     
-    --shadow-subtle: 0 1px 2px 0 hsl(213 94% 68% / 0.05);
-    --shadow-medium: 0 4px 6px -1px hsl(213 94% 68% / 0.1), 0 2px 4px -1px hsl(213 94% 68% / 0.06);
-    --shadow-large: 0 20px 25px -5px hsl(213 94% 68% / 0.1), 0 10px 10px -5px hsl(213 94% 68% / 0.04);
-    --shadow-glow: 0 0 40px hsl(213 94% 78% / 0.4);
+    --shadow-subtle: 0 1px 3px 0 hsl(220 91% 51% / 0.08), 0 1px 2px -1px hsl(220 91% 51% / 0.08);
+    --shadow-medium: 0 4px 6px -1px hsl(220 91% 51% / 0.15), 0 2px 4px -2px hsl(220 91% 51% / 0.15);
+    --shadow-large: 0 25px 50px -12px hsl(220 91% 51% / 0.25), 0 0 0 1px hsl(220 91% 51% / 0.05);
+    --shadow-glow: 0 0 50px hsl(220 91% 61% / 0.5), 0 0 100px hsl(240 71% 71% / 0.2);
+    --shadow-premium: 0 32px 64px -12px hsl(220 91% 51% / 0.35);
 
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -83,9 +89,10 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 213 94% 78%;
+    --primary: 220 91% 61%;
     --primary-foreground: 222.2 84% 4.9%;
-    --primary-glow: 213 94% 88%;
+    --primary-glow: 220 91% 71%;
+    --primary-variant: 230 81% 51%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -93,7 +100,7 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 142 76% 46%;
+    --accent: 160 84% 49%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -101,17 +108,20 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 213 94% 78%;
+    --ring: 220 91% 61%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(213 94% 78%), hsl(213 94% 88%));
+    --gradient-primary: linear-gradient(135deg, hsl(220 91% 61%) 0%, hsl(230 81% 51%) 50%, hsl(240 71% 41%) 100%);
     --gradient-secondary: linear-gradient(135deg, hsl(217.2 32.6% 17.5%), hsl(217.2 32.6% 25%));
-    --gradient-success: linear-gradient(135deg, hsl(142 76% 46%), hsl(142 76% 56%));
-    --gradient-hero: linear-gradient(135deg, hsl(213 94% 78%) 0%, hsl(219 78% 68%) 50%, hsl(225 83% 63%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(160 84% 49%), hsl(160 84% 59%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 91% 61%) 0%, hsl(230 81% 51%) 35%, hsl(240 71% 41%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
     
-    --shadow-subtle: 0 1px 2px 0 hsl(0 0% 0% / 0.1);
-    --shadow-medium: 0 4px 6px -1px hsl(0 0% 0% / 0.2), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-large: 0 20px 25px -5px hsl(0 0% 0% / 0.2), 0 10px 10px -5px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 40px hsl(213 94% 88% / 0.3);
+    --shadow-subtle: 0 1px 3px 0 hsl(0 0% 0% / 0.12), 0 1px 2px -1px hsl(0 0% 0% / 0.12);
+    --shadow-medium: 0 4px 6px -1px hsl(0 0% 0% / 0.25), 0 2px 4px -2px hsl(0 0% 0% / 0.25);
+    --shadow-large: 0 25px 50px -12px hsl(0 0% 0% / 0.35), 0 0 0 1px hsl(220 91% 61% / 0.1);
+    --shadow-glow: 0 0 50px hsl(220 91% 71% / 0.4), 0 0 100px hsl(240 71% 81% / 0.15);
+    --shadow-premium: 0 32px 64px -12px hsl(0 0% 0% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -129,6 +139,50 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-light antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { box-shadow: var(--shadow-medium); }
+    to { box-shadow: var(--shadow-glow); }
   }
 }

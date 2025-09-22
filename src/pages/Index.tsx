@@ -69,30 +69,30 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-border/50 glass-effect sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-18">
             <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-gradient-primary rounded-xl shadow-medium"></div>
+              <div className="w-12 h-12 bg-gradient-primary rounded-xl shadow-glow animate-glow"></div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">PM Internship Portal</h1>
-                <p className="text-sm text-muted-foreground">Government of India</p>
+                <h1 className="text-xl font-bold text-foreground tracking-tight">PM Internship Portal</h1>
+                <p className="text-sm text-muted-foreground font-medium">Government of India</p>
               </div>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
-              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#features" className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 font-medium">
                 Features
               </a>
-              <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 font-medium">
                 How It Works
               </a>
-              <a href="#analytics" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#analytics" className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 font-medium">
                 Analytics
               </a>
-              <Button variant="outline" onClick={() => setCurrentView('company')}>
+              <Button variant="glass" onClick={() => setCurrentView('company')}>
                 Company Login
               </Button>
-              <Button onClick={() => setCurrentView('student')}>
+              <Button variant="premium" onClick={() => setCurrentView('student')}>
                 Student Portal
               </Button>
             </nav>
@@ -101,36 +101,40 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-hero py-20 lg:py-32">
-        <div className="absolute inset-0 bg-grid-white/10 bg-grid-pattern"></div>
+      <section className="relative overflow-hidden bg-gradient-hero py-24 lg:py-40">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-grid-white/[0.05]"></div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge className="mb-6 bg-white/20 text-white border-white/20 hover:bg-white/30">
+          <Badge className="mb-8 glass-effect text-white border-white/30 hover:bg-white/20 shadow-large">
             Powered by Advanced AI & Machine Learning
           </Badge>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
             Smart Internship<br />
-            <span className="text-primary-glow">Matching System</span>
+            <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Matching System</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             Revolutionizing the PM Internship Scheme with AI-powered candidate matching, 
             automated resume processing, and inclusive selection algorithms.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 shadow-glow"
+              variant="premium"
+              className="bg-white text-primary hover:bg-white/95 shadow-premium text-lg font-semibold"
               onClick={() => setCurrentView('student')}
             >
               Get Started as Student
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
-              variant="outline" 
+              variant="glass" 
               size="lg"
-              className="text-white border-white/20 hover:bg-white/10"
+              className="text-white border-white/30 hover:bg-white/20 text-lg font-semibold"
               onClick={() => setCurrentView('company')}
             >
               Company Portal
@@ -150,13 +154,13 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-background">
+      <section id="features" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
               Intelligent Features for Modern Internship Management
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
               Our AI-powered platform streamlines the entire internship lifecycle, 
               from application to selection, ensuring fairness and efficiency.
             </p>
@@ -166,12 +170,12 @@ const Index = () => {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="p-6 hover:shadow-large transition-all duration-300 border-0 shadow-medium">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 shadow-glow">
-                    <Icon className="h-6 w-6 text-white" />
+                <Card key={index} className="p-8 hover:shadow-premium transition-all duration-500 border-0 premium-card hover:scale-105 group">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 shadow-glow group-hover:animate-glow">
+                    <Icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed font-light">{feature.description}</p>
                 </Card>
               );
             })}
@@ -180,19 +184,19 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-gradient-secondary">
+      <section id="how-it-works" className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
               How The System Works
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
               A streamlined process that takes students from application to internship placement in minutes.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
               {[
                 {
                   step: '01',
@@ -215,25 +219,25 @@ const Index = () => {
                   description: 'Students receive ranked internship recommendations with match scores and application options.'
                 }
               ].map((item, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold shadow-glow">
+                <div key={index} className="flex items-start space-x-6 group">
+                  <div className="w-14 h-14 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold shadow-glow text-lg group-hover:animate-glow">
                     {item.step}
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed font-light">{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <Card className="p-8 bg-white shadow-large">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Key Benefits</h3>
-              <div className="space-y-4">
+            <Card className="p-10 premium-card shadow-premium hover:shadow-glow transition-all duration-500">
+              <h3 className="text-3xl font-bold text-foreground mb-8 tracking-tight">Key Benefits</h3>
+              <div className="space-y-5">
                 {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                    <span className="text-foreground">{benefit}</span>
+                  <div key={index} className="flex items-center space-x-4 group">
+                    <CheckCircle className="h-6 w-6 text-accent flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-foreground font-medium leading-relaxed">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -243,29 +247,30 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-hero">
+      <section className="py-24 bg-gradient-hero">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
             Ready to Transform Internship Matching?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
             Join thousands of students and companies already using our AI-powered platform 
             for smarter, fairer internship matching.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 shadow-glow"
+              variant="premium"
+              className="bg-white text-primary hover:bg-white/95 shadow-premium text-lg font-semibold"
               onClick={() => setCurrentView('student')}
             >
               Start as Student
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
-              variant="outline" 
+              variant="glass" 
               size="lg"
-              className="text-white border-white/20 hover:bg-white/10"
+              className="text-white border-white/30 hover:bg-white/20 text-lg font-semibold"
               onClick={() => setCurrentView('company')}
             >
               Partner with Us
@@ -275,43 +280,43 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background py-12">
+      <footer className="border-t border-border bg-background py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="w-10 h-10 bg-gradient-primary rounded-xl"></div>
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-primary rounded-xl shadow-glow"></div>
                 <div>
-                  <h3 className="font-bold text-foreground">PM Internship Portal</h3>
-                  <p className="text-sm text-muted-foreground">Government of India</p>
+                  <h3 className="font-bold text-foreground text-lg tracking-tight">PM Internship Portal</h3>
+                  <p className="text-sm text-muted-foreground font-medium">Government of India</p>
                 </div>
               </div>
-              <p className="text-muted-foreground mb-4 max-w-md">
+              <p className="text-muted-foreground mb-6 max-w-md leading-relaxed font-light">
                 Empowering students with AI-driven internship matching while ensuring 
                 diversity and inclusion in government schemes.
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
-              <div className="space-y-2 text-sm">
-                <div className="text-muted-foreground hover:text-foreground cursor-pointer">Student Portal</div>
-                <div className="text-muted-foreground hover:text-foreground cursor-pointer">Company Dashboard</div>
-                <div className="text-muted-foreground hover:text-foreground cursor-pointer">Help & Support</div>
+              <h4 className="font-bold text-foreground mb-6 tracking-tight">Quick Links</h4>
+              <div className="space-y-3 text-sm">
+                <div className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors font-medium">Student Portal</div>
+                <div className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors font-medium">Company Dashboard</div>
+                <div className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors font-medium">Help & Support</div>
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Contact</h4>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div>help@pminternship.gov.in</div>
-                <div>1800-123-4567</div>
-                <div>Ministry of Skill Development</div>
+              <h4 className="font-bold text-foreground mb-6 tracking-tight">Contact</h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="font-medium">help@pminternship.gov.in</div>
+                <div className="font-medium">1800-123-4567</div>
+                <div className="font-medium">Ministry of Skill Development</div>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
+          <div className="border-t border-border mt-12 pt-8 text-center text-sm text-muted-foreground font-medium">
             © 2024 Government of India. All rights reserved. | Privacy Policy | Terms of Service
           </div>
         </div>
