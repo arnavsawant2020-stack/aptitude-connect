@@ -24,7 +24,10 @@ const StudentPortal = () => {
       location: 'Mumbai',
       match: 95,
       sector: 'Technology',
-      duration: '3 months'
+      duration: '3 months',
+      workStyle: 'Hybrid',
+      personality: ['Collaborative', 'Analytical'],
+      learningGoals: ['Technical Skills', 'Industry Knowledge']
     },
     {
       id: 2,
@@ -33,7 +36,10 @@ const StudentPortal = () => {
       location: 'Delhi',
       match: 88,
       sector: 'Banking',
-      duration: '6 months'
+      duration: '6 months',
+      workStyle: 'On-site',
+      personality: ['Detail-oriented', 'Analytical'],
+      learningGoals: ['Professional Networking', 'Project Management']
     },
     {
       id: 3,
@@ -42,7 +48,10 @@ const StudentPortal = () => {
       location: 'Bangalore',
       match: 82,
       sector: 'Technology',
-      duration: '4 months'
+      duration: '4 months',
+      workStyle: 'Remote',
+      personality: ['Independent', 'Creative'],
+      learningGoals: ['Innovation & Research', 'Technical Skills']
     }
   ];
 
@@ -181,7 +190,7 @@ const StudentPortal = () => {
 
             {activeStep === 3 && (
               <Card className="p-6">
-                <h2 className="text-xl font-semibold mb-4">Set Your Preferences</h2>
+                <h2 className="text-xl font-semibold mb-4">Advanced Matching Preferences</h2>
                 <div className="space-y-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Locations</label>
@@ -207,6 +216,42 @@ const StudentPortal = () => {
                     </div>
                   </div>
 
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Work Style Preference</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {['Remote', 'On-site', 'Hybrid'].map((style) => (
+                        <label key={style} className="flex items-center">
+                          <input type="radio" name="workStyle" className="mr-2" defaultChecked={style === 'Hybrid'} />
+                          <span>{style}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Personality Traits</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {['Collaborative', 'Independent', 'Detail-oriented', 'Creative', 'Analytical', 'Leadership-focused'].map((trait) => (
+                        <label key={trait} className="flex items-center">
+                          <input type="checkbox" className="mr-2" defaultChecked={trait === 'Collaborative' || trait === 'Analytical'} />
+                          <span>{trait}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Learning Goals</label>
+                    <div className="grid grid-cols-1 gap-2">
+                      {['Technical Skills Development', 'Industry Knowledge', 'Professional Networking', 'Project Management', 'Communication Skills', 'Innovation & Research'].map((goal) => (
+                        <label key={goal} className="flex items-center">
+                          <input type="checkbox" className="mr-2" defaultChecked={goal === 'Technical Skills Development' || goal === 'Industry Knowledge'} />
+                          <span>{goal}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
                   <div className="flex justify-between">
                     <Button variant="outline" onClick={() => setActiveStep(2)}>Back</Button>
                     <Button onClick={() => setActiveStep(4)}>Find Matches</Button>
@@ -224,11 +269,26 @@ const StudentPortal = () => {
                       <div>
                         <h3 className="text-lg font-semibold">{internship.role}</h3>
                         <p className="text-gray-600">{internship.company}</p>
-                        <p className="text-sm text-gray-500">{internship.location} • {internship.duration}</p>
+                        <p className="text-sm text-gray-500">{internship.location} • {internship.duration} • {internship.workStyle}</p>
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-green-600">{internship.match}%</div>
-                        <div className="text-sm text-gray-500">Match Score</div>
+                        <div className="text-sm text-gray-500">AI Match Score</div>
+                      </div>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <div className="mb-2">
+                        <span className="text-sm font-medium text-gray-700">Personality Match: </span>
+                        {internship.personality.map((trait) => (
+                          <Badge key={trait} variant="secondary" className="mr-1 text-xs">{trait}</Badge>
+                        ))}
+                      </div>
+                      <div>
+                        <span className="text-sm font-medium text-gray-700">Learning Goals: </span>
+                        {internship.learningGoals.map((goal) => (
+                          <Badge key={goal} variant="outline" className="mr-1 text-xs">{goal}</Badge>
+                        ))}
                       </div>
                     </div>
                     

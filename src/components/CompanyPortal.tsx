@@ -54,7 +54,10 @@ const CompanyPortal = () => {
       matchScore: 95,
       category: 'General',
       district: 'Urban',
-      experience: '2 previous internships'
+      experience: '2 previous internships',
+      workStyle: 'Hybrid',
+      personality: ['Collaborative', 'Analytical'],
+      learningGoals: ['Technical Skills', 'Industry Knowledge']
     },
     {
       id: 2,
@@ -65,7 +68,10 @@ const CompanyPortal = () => {
       matchScore: 88,
       category: 'OBC',
       district: 'Aspirational',
-      experience: '1 previous internship'
+      experience: '1 previous internship',
+      workStyle: 'On-site',
+      personality: ['Detail-oriented', 'Leadership-focused'],
+      learningGoals: ['Professional Networking', 'Project Management']
     },
     {
       id: 3,
@@ -76,7 +82,10 @@ const CompanyPortal = () => {
       matchScore: 82,
       category: 'SC',
       district: 'Rural',
-      experience: 'Fresher'
+      experience: 'Fresher',
+      workStyle: 'Remote',
+      personality: ['Independent', 'Creative'],
+      learningGoals: ['Innovation & Research', 'Communication Skills']
     }
   ];
 
@@ -271,7 +280,7 @@ const CompanyPortal = () => {
                         ))}
                       </div>
 
-                      <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                      <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-3">
                         <div>
                           <span className="font-medium">Location:</span> {candidate.location}
                         </div>
@@ -283,6 +292,24 @@ const CompanyPortal = () => {
                         </div>
                         <div>
                           <span className="font-medium">Experience:</span> {candidate.experience}
+                        </div>
+                        <div>
+                          <span className="font-medium">Work Style:</span> {candidate.workStyle}
+                        </div>
+                      </div>
+
+                      <div className="mb-3">
+                        <div className="mb-2">
+                          <span className="text-sm font-medium text-gray-700">Personality: </span>
+                          {candidate.personality.map((trait) => (
+                            <Badge key={trait} variant="secondary" className="mr-1 text-xs">{trait}</Badge>
+                          ))}
+                        </div>
+                        <div>
+                          <span className="text-sm font-medium text-gray-700">Learning Goals: </span>
+                          {candidate.learningGoals.map((goal) => (
+                            <Badge key={goal} variant="outline" className="mr-1 text-xs">{goal}</Badge>
+                          ))}
                         </div>
                       </div>
                     </div>
