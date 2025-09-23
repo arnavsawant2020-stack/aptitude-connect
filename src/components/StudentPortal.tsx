@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, User, BookOpen, MapPin, Building, CheckCircle } from 'lucide-react';
+import { Upload, User, BookOpen, MapPin, Building, CheckCircle, Star, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -261,8 +261,45 @@ const StudentPortal = () => {
             )}
 
             {activeStep === 4 && (
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold">Your AI-Matched Internships</h2>
+              <div className="space-y-6">
+                {/* AI Best Fit Recommendation */}
+                <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                      <Star className="w-4 h-4 text-white fill-current" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-blue-900">🎯 AI Best Fit Recommendation</h3>
+                  </div>
+                  
+                  <div className="bg-white rounded-lg p-4 mb-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-900">Software Development Intern</h4>
+                        <p className="text-gray-600">Tech Mahindra</p>
+                        <p className="text-sm text-gray-500">Mumbai • 3 months • Hybrid</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-green-600">95%</div>
+                        <div className="text-sm text-gray-500">Perfect Match</div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-50 rounded-lg p-3 mb-3">
+                      <p className="text-sm text-blue-800">
+                        <strong>🤖 AI Analysis:</strong> This internship perfectly aligns with your Python & React skills, 
+                        matches your collaborative personality, and offers the technical skill development you're seeking. 
+                        The hybrid work style matches your preference.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <Badge variant="default" className="bg-blue-600">Technology</Badge>
+                      <Button className="bg-blue-600 hover:bg-blue-700">Apply to Best Match</Button>
+                    </div>
+                  </div>
+                </Card>
+
+                <h2 className="text-xl font-semibold">All AI-Matched Internships</h2>
                 {mockRecommendations.map((internship) => (
                   <Card key={internship.id} className="p-6">
                     <div className="flex justify-between items-start mb-4">
@@ -282,7 +319,45 @@ const StudentPortal = () => {
                         <span className="text-sm font-medium text-gray-700">Personality Match: </span>
                         {internship.personality.map((trait) => (
                           <Badge key={trait} variant="secondary" className="mr-1 text-xs">{trait}</Badge>
-                        ))}
+                ))}
+                
+                {/* Alternative Matches Section */}
+                <Card className="p-6 bg-gradient-to-r from-orange-50 to-yellow-50 border-orange-200">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                      <TrendingUp className="w-4 h-4 text-white" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-orange-900">🔄 Alternative Smart Suggestions</h3>
+                  </div>
+                  
+                  <div className="bg-white rounded-lg p-4 space-y-3">
+                    <p className="text-sm text-orange-800 mb-3">
+                      <strong>💡 AI Notice:</strong> Your top choice at Google is currently full. Here are equally excellent alternatives:
+                    </p>
+                    
+                    <div className="border-l-4 border-orange-300 pl-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <div>
+                          <h4 className="font-semibold">ML Engineering Intern - Microsoft</h4>
+                          <p className="text-sm text-gray-600">Bangalore • Similar tech stack • 89% match</p>
+                        </div>
+                        <Button variant="outline" size="sm">View Details</Button>
+                      </div>
+                      <p className="text-xs text-gray-500">Similar learning goals, better work-life balance</p>
+                    </div>
+                    
+                    <div className="border-l-4 border-orange-300 pl-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <div>
+                          <h4 className="font-semibold">AI Research Intern - IIT Bombay</h4>
+                          <p className="text-sm text-gray-600">Mumbai • Research focused • 87% match</p>
+                        </div>
+                        <Button variant="outline" size="sm">View Details</Button>
+                      </div>
+                      <p className="text-xs text-gray-500">Perfect for your innovation & research interests</p>
+                    </div>
+                  </div>
+                </Card>
                       </div>
                       <div>
                         <span className="text-sm font-medium text-gray-700">Learning Goals: </span>

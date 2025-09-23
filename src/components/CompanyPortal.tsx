@@ -262,6 +262,92 @@ const CompanyPortal = () => {
               </div>
             </div>
 
+            {/* AI Best Fit Recommendations */}
+            <Card className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-green-200 mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                  <Star className="w-4 h-4 text-white fill-current" />
+                </div>
+                <h3 className="text-lg font-semibold text-green-900">🎯 AI Best Fit Candidates</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+                <div className="bg-white rounded-lg p-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Rahul Sharma</h4>
+                      <p className="text-sm text-gray-600">B.Tech CSE, IIT Delhi</p>
+                    </div>
+                    <div className="text-2xl font-bold text-green-600">95%</div>
+                  </div>
+                  <div className="bg-green-50 rounded p-2 mb-2">
+                    <p className="text-xs text-green-800">
+                      <strong>🤖 Perfect Match:</strong> Skills align 100% with requirements. Collaborative personality 
+                      fits team culture. Hybrid work preference matches offering.
+                    </p>
+                  </div>
+                  <Button size="sm" className="w-full bg-green-600 hover:bg-green-700">Priority Interview</Button>
+                </div>
+                
+                <div className="bg-white rounded-lg p-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Priya Patel</h4>
+                      <p className="text-sm text-gray-600">B.Tech IT, NIT Surat</p>
+                    </div>
+                    <div className="text-2xl font-bold text-green-600">88%</div>
+                  </div>
+                  <div className="bg-green-50 rounded p-2 mb-2">
+                    <p className="text-xs text-green-800">
+                      <strong>🤖 Great Fit:</strong> Strong leadership traits complement team dynamics. 
+                      From aspirational district - supports diversity goals.
+                    </p>
+                  </div>
+                  <Button size="sm" className="w-full bg-green-600 hover:bg-green-700">Priority Interview</Button>
+                </div>
+              </div>
+            </Card>
+
+            {/* Alternative Suggestions */}
+            <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200 mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                  <TrendingUp className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-blue-900">🔄 Smart Alternative Suggestions</h3>
+              </div>
+              
+              <div className="bg-white rounded-lg p-4">
+                <p className="text-sm text-blue-800 mb-3">
+                  <strong>💡 AI Recommendation:</strong> Your Business Analytics role received 3x more applications than capacity. 
+                  Consider these high-potential candidates for other suitable positions:
+                </p>
+                
+                <div className="space-y-3">
+                  <div className="border-l-4 border-blue-300 pl-4">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h5 className="font-medium">Arjun Kumar → Data Science Intern</h5>
+                        <p className="text-sm text-gray-600">Strong MongoDB skills, creative personality - excellent fit</p>
+                      </div>
+                      <Button variant="outline" size="sm">Review Match</Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border-l-4 border-blue-300 pl-4">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h5 className="font-medium">Ravi Singh → Marketing Analytics Intern</h5>
+                        <p className="text-sm text-gray-600">Communication skills + data background - hybrid role potential</p>
+                      </div>
+                      <Button variant="outline" size="sm">Review Match</Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <h3 className="text-lg font-semibold mb-4">All Candidate Applications</h3>
             <div className="space-y-4">
               {mockCandidates.map((candidate) => (
                 <Card key={candidate.id} className="p-6">
