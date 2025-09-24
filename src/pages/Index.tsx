@@ -75,8 +75,8 @@ const Index = () => {
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-gradient-primary rounded-xl shadow-glow animate-glow"></div>
               <div>
-                <h1 className="text-xl font-bold text-foreground tracking-tight">PM Internship Portal</h1>
-                <p className="text-sm text-muted-foreground font-medium">Government of India</p>
+                <h1 className="text-xl font-bold text-foreground tracking-tight">InternMatch AI</h1>
+                <p className="text-sm text-muted-foreground font-medium">AI-Powered Internship Matching</p>
               </div>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
@@ -287,8 +287,8 @@ const Index = () => {
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-primary rounded-xl shadow-glow"></div>
                 <div>
-                  <h3 className="font-bold text-foreground text-lg tracking-tight">PM Internship Portal</h3>
-                  <p className="text-sm text-muted-foreground font-medium">Government of India</p>
+                  <h3 className="font-bold text-foreground text-lg tracking-tight">InternMatch AI</h3>
+                  <p className="text-sm text-muted-foreground font-medium">AI-Powered Internship Matching</p>
                 </div>
               </div>
               <p className="text-muted-foreground mb-6 max-w-md leading-relaxed font-light">
@@ -309,7 +309,7 @@ const Index = () => {
             <div>
               <h4 className="font-bold text-foreground mb-6 tracking-tight">Contact</h4>
               <div className="space-y-3 text-sm text-muted-foreground">
-                <div className="font-medium">help@pminternship.gov.in</div>
+                <div className="font-medium">support@internmatch.ai</div>
                 <div className="font-medium">1800-123-4567</div>
                 <div className="font-medium">Ministry of Skill Development</div>
               </div>
