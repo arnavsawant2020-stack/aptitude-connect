@@ -56,12 +56,12 @@ const Index = () => {
   ];
 
   const benefits = [
-    'Automated profile creation from resume upload',
-    'Smart matching based on skills and preferences',
-    'Ensures diversity and inclusion compliance',
-    'Real-time application tracking',
-    'Comprehensive analytics and reporting',
-    'Scalable for government-wide deployment'
+    'Intelligent candidate-opportunity matching',
+    'Comprehensive application management system',
+    'Real-time analytics and performance insights',
+    'Streamlined communication tools',
+    'Advanced filtering and search capabilities',
+    'Enterprise-grade security and compliance'
   ];
 
   return (
@@ -109,14 +109,14 @@ const Index = () => {
             Powered by Advanced AI & Machine Learning
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
-            Smart Internship<br />
-            <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Matching System</span>
+          <h1 className="text-4xl md:text-6xl font-semibold text-white mb-6 leading-tight tracking-tight">
+            AI-Powered Internship<br />
+            <span className="bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent font-bold">Matching Platform</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Revolutionizing the PM Internship Scheme with AI-powered candidate matching, 
-            automated resume processing, and inclusive selection algorithms.
+          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed font-normal">
+            Connect talented students with leading organizations through intelligent matching algorithms, 
+            streamlined application processes, and data-driven insights.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
@@ -155,12 +155,12 @@ const Index = () => {
       <section id="features" className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
-              Intelligent Features for Modern Internship Management
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4 tracking-tight">
+              Advanced Technology for Better Outcomes
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
-              Our AI-powered platform streamlines the entire internship lifecycle, 
-              from application to selection, ensuring fairness and efficiency.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Our platform leverages cutting-edge AI to create meaningful connections between 
+              students and organizations, delivering measurable results and superior user experience.
             </p>
           </div>
 
@@ -185,11 +185,11 @@ const Index = () => {
       <section id="how-it-works" className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
-              How The System Works
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4 tracking-tight">
+              Streamlined Process
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-              A streamlined process that takes students from application to internship placement in minutes.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Four simple steps to connect students with their ideal internship opportunities.
             </p>
           </div>
 
@@ -198,23 +198,23 @@ const Index = () => {
               {[
                 {
                   step: '01',
-                  title: 'Upload Resume',
-                  description: 'Students upload their PDF resume. Our AI instantly extracts skills, education, and experience.'
+                  title: 'Profile Creation',
+                  description: 'Students create comprehensive profiles with skills, preferences, and career goals through an intuitive interface.'
                 },
                 {
                   step: '02',
-                  title: 'AI Analysis',
-                  description: 'Advanced algorithms analyze candidate profiles and match them with suitable internship opportunities.'
+                  title: 'Intelligent Matching',
+                  description: 'Our AI analyzes profiles against available opportunities, considering compatibility factors and preferences.'
                 },
                 {
                   step: '03',
-                  title: 'Smart Matching',
-                  description: 'The system considers skills, location preferences, diversity quotas, and company requirements.'
+                  title: 'Curated Recommendations',
+                  description: 'Receive personalized internship matches ranked by compatibility, with detailed insights and company information.'
                 },
                 {
                   step: '04',
-                  title: 'Instant Results',
-                  description: 'Students receive ranked internship recommendations with match scores and application options.'
+                  title: 'Seamless Application',
+                  description: 'Apply to multiple opportunities with one click, track application status, and receive real-time updates.'
                 }
               ].map((item, index) => (
                 <div key={index} className="flex items-start space-x-6 group">
@@ -247,12 +247,12 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-24 bg-gradient-hero">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
-            Ready to Transform Internship Matching?
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6 tracking-tight">
+            Ready to Get Started?
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-            Join thousands of students and companies already using our AI-powered platform 
-            for smarter, fairer internship matching.
+          <p className="text-lg text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Join our network of top students and leading organizations. 
+            Experience the future of internship matching today.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
