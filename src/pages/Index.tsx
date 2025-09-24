@@ -51,8 +51,6 @@ const Index = () => {
   ];
 
   const stats = [
-    { number: '10,000+', label: 'Students Registered' },
-    { number: '500+', label: 'Partner Companies' },
     { number: '95%', label: 'Match Accuracy' },
     { number: '2.3min', label: 'Average Match Time' },
   ];
