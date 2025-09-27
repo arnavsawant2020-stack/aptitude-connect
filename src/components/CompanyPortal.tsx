@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, RadialBarChart, RadialBar } from 'recharts';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const CompanyPortal = ({ onBack }: { onBack: () => void }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -112,6 +113,7 @@ const CompanyPortal = ({ onBack }: { onBack: () => void }) => {
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-600">Tech Mahindra Ltd.</span>
+              <ThemeToggle />
               <Button variant="outline" size="sm">Settings</Button>
             </div>
           </div>

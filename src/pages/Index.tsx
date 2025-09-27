@@ -3,6 +3,7 @@ import { ArrowRight, Users, Brain, FileText, BarChart3, Shield, Zap, CheckCircle
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { ThemeToggle } from '@/components/theme-toggle';
 import StudentPortal from '@/components/StudentPortal';
 import CompanyPortal from '@/components/CompanyPortal';
 import logoImage from '@/assets/internmatch-logo.png';
@@ -92,6 +93,7 @@ const Index = () => {
               <a href="#analytics" className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-105 font-medium">
                 Analytics
               </a>
+              <ThemeToggle />
               <Button variant="glass" onClick={() => setCurrentView('company')}>
                 Company Login
               </Button>

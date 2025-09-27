@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const StudentPortal = ({ onBack }: { onBack: () => void }) => {
   const [activeStep, setActiveStep] = useState(1);
@@ -76,6 +77,7 @@ const StudentPortal = ({ onBack }: { onBack: () => void }) => {
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-600">Welcome, Rahul Sharma</span>
+              <ThemeToggle />
               <Button variant="outline" size="sm">Profile</Button>
             </div>
           </div>
