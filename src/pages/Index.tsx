@@ -11,11 +11,11 @@ const Index = () => {
   const [currentView, setCurrentView] = useState<'landing' | 'student' | 'company'>('landing');
 
   if (currentView === 'student') {
-    return <StudentPortal />;
+    return <StudentPortal onBack={() => setCurrentView('landing')} />;
   }
 
   if (currentView === 'company') {
-    return <CompanyPortal />;
+    return <CompanyPortal onBack={() => setCurrentView('landing')} />;
   }
 
   const features = [
