@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, RadialBarChart, RadialBar } from 'recharts';
 
 const CompanyPortal = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -413,68 +415,241 @@ const CompanyPortal = () => {
 
           <TabsContent value="analytics">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Application Trends Chart */}
               <Card className="p-6">
                 <h3 className="text-lg font-semibold mb-4">Application Trends</h3>
-                <div className="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Chart: Applications over time</p>
+                <ChartContainer
+                  config={{
+                    applications: {
+                      label: "Applications",
+                      color: "hsl(var(--chart-1))",
+                    },
+                    matches: {
+                      label: "AI Matches",
+                      color: "hsl(var(--chart-2))",
+                    },
+                  }}
+                  className="h-64"
+                >
+                  <LineChart data={[
+                    { month: 'Jan', applications: 45, matches: 23 },
+                    { month: 'Feb', applications: 52, matches: 28 },
+                    { month: 'Mar', applications: 78, matches: 42 },
+                    { month: 'Apr', applications: 93, matches: 51 },
+                    { month: 'May', applications: 89, matches: 48 },
+                    { month: 'Jun', applications: 125, matches: 67 },
+                  ]}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="month" />
+                    <YAxis />
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <Line 
+                      type="monotone" 
+                      dataKey="applications" 
+                      stroke="hsl(var(--chart-1))" 
+                      strokeWidth={3}
+                      dot={{ fill: "hsl(var(--chart-1))", r: 4 }}
+                    />
+                    <Line 
+                      type="monotone" 
+                      dataKey="matches" 
+                      stroke="hsl(var(--chart-2))" 
+                      strokeWidth={3}
+                      dot={{ fill: "hsl(var(--chart-2))", r: 4 }}
+                    />
+                  </LineChart>
+                </ChartContainer>
+              </Card>
+
+              {/* Diversity Metrics Pie Chart */}
+              <Card className="p-6">
+                <h3 className="text-lg font-semibold mb-4">Diversity Distribution</h3>
+                <ChartContainer
+                  config={{
+                    general: {
+                      label: "General",
+                      color: "hsl(var(--chart-1))",
+                    },
+                    obc: {
+                      label: "OBC",
+                      color: "hsl(var(--chart-2))",
+                    },
+                    scst: {
+                      label: "SC/ST",
+                      color: "hsl(var(--chart-3))",
+                    },
+                    other: {
+                      label: "Others",
+                      color: "hsl(var(--chart-4))",
+                    },
+                  }}
+                  className="h-64"
+                >
+                  <PieChart>
+                    <Pie
+                      data={[
+                        { name: 'General', value: 42, fill: 'hsl(var(--chart-1))' },
+                        { name: 'OBC', value: 35, fill: 'hsl(var(--chart-2))' },
+                        { name: 'SC/ST', value: 18, fill: 'hsl(var(--chart-3))' },
+                        { name: 'Others', value: 5, fill: 'hsl(var(--chart-4))' },
+                      ]}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={60}
+                      outerRadius={100}
+                      paddingAngle={2}
+                      dataKey="value"
+                    />
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                  </PieChart>
+                </ChartContainer>
+              </Card>
+
+              {/* AI Matching Performance Radial Chart */}
+              <Card className="p-6">
+                <h3 className="text-lg font-semibold mb-4">AI Performance Metrics</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <ChartContainer
+                      config={{
+                        score: {
+                          label: "Match Score",
+                          color: "hsl(var(--chart-1))",
+                        },
+                      }}
+                      className="h-32"
+                    >
+                      <RadialBarChart data={[{ score: 87.3, fill: 'hsl(var(--chart-1))' }]} innerRadius="60%" outerRadius="90%">
+                        <RadialBar dataKey="score" cornerRadius={10} />
+                        <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="text-2xl font-bold fill-current">87.3%</text>
+                      </RadialBarChart>
+                    </ChartContainer>
+                    <p className="text-sm text-gray-600 mt-2">Avg Match Score</p>
+                  </div>
+                  <div className="text-center">
+                    <ChartContainer
+                      config={{
+                        rate: {
+                          label: "Selection Rate",
+                          color: "hsl(var(--chart-2))",
+                        },
+                      }}
+                      className="h-32"
+                    >
+                      <RadialBarChart data={[{ rate: 23.4, fill: 'hsl(var(--chart-2))' }]} innerRadius="60%" outerRadius="90%">
+                        <RadialBar dataKey="rate" cornerRadius={10} />
+                        <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="text-2xl font-bold fill-current">23.4%</text>
+                      </RadialBarChart>
+                    </ChartContainer>
+                    <p className="text-sm text-gray-600 mt-2">Selection Rate</p>
+                  </div>
+                </div>
+                <div className="mt-4 p-3 bg-green-50 rounded-lg">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-green-800">Average Time to Match</span>
+                    <span className="font-bold text-green-900">2.3 minutes</span>
+                  </div>
                 </div>
               </Card>
 
+              {/* Skills Distribution Bar Chart */}
               <Card className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Diversity Metrics</h3>
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span>Rural Representation</span>
-                      <span>32%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-600 h-2 rounded-full" style={{width: '32%'}}></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span>SC/ST Candidates</span>
-                      <span>28%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-600 h-2 rounded-full" style={{width: '28%'}}></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span>Aspirational Districts</span>
-                      <span>45%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-purple-600 h-2 rounded-full" style={{width: '45%'}}></div>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold mb-4">Top Skills in Applications</h3>
+                <ChartContainer
+                  config={{
+                    count: {
+                      label: "Applications",
+                      color: "hsl(var(--chart-3))",
+                    },
+                  }}
+                  className="h-64"
+                >
+                  <BarChart data={[
+                    { skill: 'Python', count: 156 },
+                    { skill: 'React', count: 142 },
+                    { skill: 'Java', count: 128 },
+                    { skill: 'JavaScript', count: 118 },
+                    { skill: 'SQL', count: 95 },
+                    { skill: 'Node.js', count: 87 },
+                    { skill: 'Angular', count: 73 },
+                    { skill: 'MongoDB', count: 65 },
+                  ]}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="skill" angle={-45} textAnchor="end" height={100} />
+                    <YAxis />
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <Bar dataKey="count" fill="hsl(var(--chart-3))" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ChartContainer>
               </Card>
 
-              <Card className="p-6">
-                <h3 className="text-lg font-semibold mb-4">AI Matching Performance</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Average Match Score</span>
-                    <span className="font-semibold">87.3%</span>
+              {/* Monthly Performance Overview */}
+              <Card className="p-6 lg:col-span-2">
+                <h3 className="text-lg font-semibold mb-4">Monthly Performance Overview</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <p className="text-2xl font-bold text-blue-600">456</p>
+                    <p className="text-sm text-gray-600">Total Applications</p>
+                    <p className="text-xs text-green-600">↑ 12% vs last month</p>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Selection Rate</span>
-                    <span className="font-semibold">23.4%</span>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">267</p>
+                    <p className="text-sm text-gray-600">AI Matches</p>
+                    <p className="text-xs text-green-600">↑ 8% vs last month</p>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Time to Match</span>
-                    <span className="font-semibold">2.3 mins</span>
+                  <div className="text-center p-4 bg-purple-50 rounded-lg">
+                    <p className="text-2xl font-bold text-purple-600">89</p>
+                    <p className="text-sm text-gray-600">Interviews Scheduled</p>
+                    <p className="text-xs text-green-600">↑ 15% vs last month</p>
+                  </div>
+                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                    <p className="text-2xl font-bold text-orange-600">23</p>
+                    <p className="text-sm text-gray-600">Final Selections</p>
+                    <p className="text-xs text-green-600">↑ 5% vs last month</p>
                   </div>
                 </div>
-              </Card>
 
-              <Card className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Skills Distribution</h3>
-                <div className="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Chart: Top skills in applications</p>
+                {/* Conversion Funnel */}
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-semibold mb-3">Application to Selection Funnel</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Applications Received</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div className="bg-blue-600 h-2 rounded-full" style={{width: '100%'}}></div>
+                        </div>
+                        <span className="text-sm font-medium w-12">456</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">AI Matched</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div className="bg-green-600 h-2 rounded-full" style={{width: '58.5%'}}></div>
+                        </div>
+                        <span className="text-sm font-medium w-12">267</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Interviews</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div className="bg-purple-600 h-2 rounded-full" style={{width: '19.5%'}}></div>
+                        </div>
+                        <span className="text-sm font-medium w-12">89</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Final Selections</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 bg-gray-200 rounded-full h-2">
+                          <div className="bg-orange-600 h-2 rounded-full" style={{width: '5%'}}></div>
+                        </div>
+                        <span className="text-sm font-medium w-12">23</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </Card>
             </div>
