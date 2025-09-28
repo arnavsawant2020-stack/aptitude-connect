@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ThemeToggle } from '@/components/theme-toggle';
 import StudentPortal from '@/components/StudentPortal';
 import CompanyPortal from '@/components/CompanyPortal';
-import logoImage from '@/assets/internmatch-logo.png';
+import { ResponsiveLogo } from '@/components/ResponsiveLogo';
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<'landing' | 'student' | 'company'>('landing');
@@ -73,11 +73,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-18">
             <div className="flex items-center space-x-4">
-              <img 
-                src={logoImage} 
-                alt="InternMatch AI Logo" 
-                className="w-12 h-12 object-contain"
-              />
+              <ResponsiveLogo />
               <div>
                 <h1 className="text-xl font-bold text-foreground tracking-tight">InternMatch AI</h1>
                 <p className="text-sm text-muted-foreground font-medium">AI-Powered Internship Matching</p>
@@ -290,11 +286,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-4 mb-6">
-                <img 
-                  src={logoImage} 
-                  alt="InternMatch AI Logo" 
-                  className="w-12 h-12 object-contain"
-                />
+                <ResponsiveLogo />
                 <div>
                   <h3 className="font-bold text-foreground text-lg tracking-tight">InternMatch AI</h3>
                   <p className="text-sm text-muted-foreground font-medium">AI-Powered Internship Matching</p>

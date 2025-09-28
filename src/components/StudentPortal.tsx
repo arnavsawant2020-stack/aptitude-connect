@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { ResponsiveLogo } from '@/components/ResponsiveLogo';
 
 const StudentPortal = ({ onBack }: { onBack: () => void }) => {
   const [activeStep, setActiveStep] = useState(1);
@@ -72,7 +73,7 @@ const StudentPortal = ({ onBack }: { onBack: () => void }) => {
                 <ArrowLeft size={16} />
                 Back to Home
               </Button>
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg"></div>
+              <ResponsiveLogo />
               <h1 className="text-xl font-semibold text-gray-900">PM Internship Portal</h1>
             </div>
             <div className="flex items-center space-x-4">

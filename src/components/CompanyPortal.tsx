@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, RadialBarChart, RadialBar } from 'recharts';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { ResponsiveLogo } from '@/components/ResponsiveLogo';
 
 const CompanyPortal = ({ onBack }: { onBack: () => void }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -108,7 +109,7 @@ const CompanyPortal = ({ onBack }: { onBack: () => void }) => {
                 <ArrowLeft size={16} />
                 Back to Home
               </Button>
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg"></div>
+              <ResponsiveLogo />
               <h1 className="text-xl font-semibold text-gray-900">Company Portal</h1>
             </div>
             <div className="flex items-center space-x-4">
