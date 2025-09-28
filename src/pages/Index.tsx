@@ -93,7 +93,7 @@ const Index = () => {
               <Button variant="company" onClick={() => setCurrentView('company')}>
                 Company Login
               </Button>
-              <Button variant="premium" onClick={() => setCurrentView('student')}>
+              <Button variant="student" onClick={() => setCurrentView('student')}>
                 Student Portal
               </Button>
             </nav>
@@ -125,8 +125,8 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Button 
               size="lg" 
-              variant="premium"
-              className="bg-white text-primary hover:bg-white/95 shadow-premium text-lg font-semibold"
+              variant="student"
+              className="text-lg font-semibold"
               onClick={() => setCurrentView('student')}
             >
               Get Started as Student
@@ -261,8 +261,8 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
-              variant="premium"
-              className="bg-white text-primary hover:bg-white/95 shadow-premium text-lg font-semibold"
+              variant="student"
+              className="text-lg font-semibold"
               onClick={() => setCurrentView('student')}
             >
               Start as Student
