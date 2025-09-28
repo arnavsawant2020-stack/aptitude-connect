@@ -90,7 +90,7 @@ const Index = () => {
                 Analytics
               </a>
               <ThemeToggle />
-              <Button variant="glass" onClick={() => setCurrentView('company')}>
+              <Button variant="company" onClick={() => setCurrentView('company')}>
                 Company Login
               </Button>
               <Button variant="premium" onClick={() => setCurrentView('student')}>
@@ -133,9 +133,9 @@ const Index = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
-              variant="glass" 
+              variant="company" 
               size="lg"
-              className="text-white border-white/30 hover:bg-white/20 text-lg font-semibold"
+              className="text-lg font-semibold"
               onClick={() => setCurrentView('company')}
             >
               Company Portal
@@ -269,9 +269,9 @@ const Index = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
-              variant="glass" 
+              variant="company" 
               size="lg"
-              className="text-white border-white/30 hover:bg-white/20 text-lg font-semibold"
+              className="text-lg font-semibold"
               onClick={() => setCurrentView('company')}
             >
               Partner with Us
