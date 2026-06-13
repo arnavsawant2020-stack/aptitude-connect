@@ -7,9 +7,21 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import StudentPortal from '@/components/StudentPortal';
 import CompanyPortal from '@/components/CompanyPortal';
 import { ResponsiveLogo } from '@/components/ResponsiveLogo';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<'landing' | 'student' | 'company'>('landing');
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+
+  const requireAuth = (view: 'student' | 'company') => {
+    if (!user) {
+      navigate('/auth');
+      return;
+    }
+    setCurrentView(view);
+  };
 
   if (currentView === 'student') {
     return <StudentPortal onBack={() => setCurrentView('landing')} />;
@@ -90,12 +102,21 @@ const Index = () => {
                 Analytics
               </a>
               <ThemeToggle />
-              <Button variant="company" onClick={() => setCurrentView('company')}>
-                Company Login
-              </Button>
-              <Button variant="student" onClick={() => setCurrentView('student')}>
-                Student Portal
-              </Button>
+              {user ? (
+                <>
+                  <Button variant="company" onClick={() => requireAuth('company')}>
+                    Company Portal
+                  </Button>
+                  <Button variant="student" onClick={() => requireAuth('student')}>
+                    Student Portal
+                  </Button>
+                  <Button variant="outline" onClick={() => signOut()}>
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={() => navigate('/auth')}>Sign In</Button>
+              )}
             </nav>
           </div>
         </div>
