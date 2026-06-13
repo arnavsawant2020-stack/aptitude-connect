@@ -148,7 +148,7 @@ const Index = () => {
               size="lg" 
               variant="student"
               className="text-lg font-semibold"
-              onClick={() => setCurrentView('student')}
+              onClick={() => requireAuth('student')}
             >
               Get Started as Student
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -157,7 +157,7 @@ const Index = () => {
               variant="company" 
               size="lg"
               className="text-lg font-semibold"
-              onClick={() => setCurrentView('company')}
+              onClick={() => requireAuth('company')}
             >
               Company Portal
             </Button>
@@ -284,7 +284,7 @@ const Index = () => {
               size="lg" 
               variant="student"
               className="text-lg font-semibold"
-              onClick={() => setCurrentView('student')}
+              onClick={() => requireAuth('student')}
             >
               Start as Student
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -293,7 +293,7 @@ const Index = () => {
               variant="company" 
               size="lg"
               className="text-lg font-semibold"
-              onClick={() => setCurrentView('company')}
+              onClick={() => requireAuth('company')}
             >
               Partner with Us
             </Button>
